@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Flickr</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular/angular-resource.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script type="text/ng-template" id="/templates/photoview.html">
+        <div id="photos" class="clearfix">
+            <div class="photo" ng-repeat="photo in photos.items">
+                <span class="image-text">{{ photo.title }}</span>
+                <img ng-src="{{ photo.media.m }}">
+            </div>
+        </div>
+    </script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-controller="FlickrCtrl">
+
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Flickr Search</h1>
+    </ion-header-bar>
+
+    <div id="search-bar">
+        <div class="item item-input-inset">
+            <label ng-click="search()" class="item-input-wrapper" id="search-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="query" ng-change="search()">
+            </label>
+        </div>
+    </div>
+
+    <div id="location-bar">
+        <div class="item item-input-inset">
+            <label ng-click="location()" class="item-input-wrapper" id="location-area">
+                <i class="icon ion-loop placeholder-icon"></i>
+                <b>Location:</b>&nbsp;{{ lat }},{{ lng }}
+            </label>
+        </div>
+    </div>
+
+    <ion-content id="content" push-search>
+        <photo-view></photo-view>
+    </ion-content>
+</body>
+
+</html>

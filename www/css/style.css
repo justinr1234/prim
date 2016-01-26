@@ -1,0 +1,53 @@
+#search-input {
+    text-align: center;
+}
+#location-area {
+    text-align: center;
+}
+#photos {
+    margin: auto;
+}
+.photo {
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+    float: left;
+    overflow: hidden;
+}
+.photo img {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    max-height: 150%;
+}
+#search-bar {
+    background: none;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    height: 40px;
+    z-index: 3;
+}
+#search-bar .item {
+    background: none;
+    border: none;
+}
+#location-bar {
+    background: none;
+    position: absolute;
+    width: 100%;
+    top: 110px;
+    height: 40px;
+    z-index: 3;
+}
+#location-bar .item {
+    background: none;
+    border: none;
+}
+#content {
+    top: 180px;
+    padding-bottom: 20px;
+}
+.image-text {
+    z-index: 4;
+}
